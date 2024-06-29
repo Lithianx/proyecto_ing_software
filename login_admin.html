@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de Login</title>
+  <!-- Enlace a Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Estilos adicionales (opcional) -->
+  <style>
+    .login-form {
+      width: 340px;
+      margin: 50px auto;
+    }
+    .login-form form {
+      margin-bottom: 15px;
+      background: #f7f7f7;
+      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+      padding: 30px;
+    }
+    .login-form h2 {
+      margin: 0 0 15px;
+    }
+  </style>
+</head>
+<body>
+<div>
+    <div class="mt-5 ms-5">
+        <a href="index.html" class="btn btn-primary">Volver al Inicio</a>
+    </div>
+</div>
+  <div class="login-form">
+    <form action="gestion_reservas.html" method="post">
+      <h2 class="text-center">Inicio de sesión Administración</h2>       
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Usuario" required="required">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="Contraseña" required="required">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-success btn-block">Iniciar sesión</button>
+      </div>
+    </form>
+  </div>
+  <!-- Scripts de Bootstrap y jQuery (opcional, para algunos componentes de Bootstrap) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Footer -->
+<footer class="mt-5 bg-light text-center text-lg-start">
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Hoteles VERANUM</h5>
+                <p style="justify-content: center;">
+                    La empresa hotelera VERANUM posee 2 hoteles, uno en Santiago y uno en la Vta región. 
+                    Con 30 años de experiencia, nos destacamos por ser cercanos a nuestros clientes y mantener un contacto fluido con ellos.
+                </p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Enlaces</h5>
+                <ul class="list-unstyled mb-0">
+                  <li><a href="index.html" class="text-dark">Inicio</a></li>
+                  <li><a href="reserva.html" class="text-dark">Reservas</a></li>
+                  <li><a href="eventos.html" class="text-dark">Eventos</a></li>
+                  <li><a href="servicios.html" class="text-dark">Servicios</a></li>
+                  <li><a href="contacto.html" class="text-dark">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Contacto</h5>
+                <ul class="list-unstyled">
+                    <li><p><i class="fas fa-home mr-3"></i> Santiago, Chile</p></li>
+                    <li><p><i class="fas fa-envelope mr-3"></i> info@veranum.com</p></li>
+                    <li><p><i class="fas fa-phone mr-3"></i> + 56 9 1234 5678</p></li>
+                    <li><p><i class="fas fa-print mr-3"></i> + 56 2 1234 5678</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center p-3 bg-dark text-white">
+        © 2024 Hoteles VERANUM. Todos los derechos reservados.
+    </div>
+</footer>
+</body>
+</html>
