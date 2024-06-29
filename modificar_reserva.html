@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administración de Reservas - VERANUM</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Modificar Reserva - Administración de Reservas</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
+    
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">Hoteles VERANUM</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,38 +42,88 @@
             </ul>
         </div>
     </nav>
-
-    <div class="container mt-5">
-        <h1>Administración de Reservas</h1>
-        <form id="manage-reservations-form" class="mt-4">
+    <div class="container">
+        <h1 class="text-center mb-4">Modificar Reserva</h1>
+        <form id="modificarReservaForm">
             <div class="form-group">
                 <label for="reservation-id">ID de la Reserva</label>
                 <input type="text" class="form-control" id="reservation-id" placeholder="Ingrese el ID de la reserva">
             </div>
             <div class="form-group">
-                <label for="customer-name">Nombre del Cliente</label>
-                <input type="text" class="form-control" id="customer-name" placeholder="Ingrese el nombre del cliente">
+                <label for="customer-name">Nuevo Nombre del Cliente</label>
+                <input type="text" class="form-control" id="customer-name" placeholder="Ingrese el nuevo nombre del cliente">
             </div>
             <div class="form-group">
-                <label for="room-number">Número de Habitación</label>
-                <input type="text" class="form-control" id="room-number" placeholder="Ingrese el número de habitación">
+                <label for="room-number">Nuevo Número de Habitación</label>
+                <input type="text" class="form-control" id="room-number" placeholder="Ingrese el nuevo número de habitación">
             </div>
-            <button type="button" class="btn btn-primary" onclick="window.location.href = 'consulta_reserva.html'">Consultar Reserva</button>
-
-            <button type="button" class="btn btn-secondary" onclick="window.location.href = 'buscar_reserva.html'">Buscar Reserva</button>
-            
-            <button type="button" class="btn btn-success" onclick="window.location.href = 'modificar_reserva.html'">Modificar Reserva</button>
-            
-            <button type="button" class="btn btn-danger" onclick="window.location.href = 'eliminar_reserva.html'">Eliminar Reserva</button>
+            <div class="form-group">
+                <label for="start-date">Nueva Fecha de Inicio</label>
+                <input type="date" class="form-control" id="start-date">
+            </div>
+            <div class="form-group">
+                <label for="end-date">Nueva Fecha de Término</label>
+                <input type="date" class="form-control" id="end-date">
+            </div>
+            <div class="form-group">
+                <label for="reservation-type">Nuevo Tipo de Reserva</label>
+                <select class="form-control" id="reservation-type">
+                    <option value="Individual">Individual</option>
+                    <option value="Doble">Doble</option>
+                    <option value="Suite">Suite</option>
+                    <!-- Agrega más opciones según sea necesario -->
+                </select>
+            </div>
+            <button type="button" class="btn btn-success btn-block" onclick="modificarReserva()">Modificar Reserva</button>
         </form>
 
-        <div id="reservation-result" class="mt-4"></div>
+        <div id="modify-results" class="mt-4">
+            <!-- Aquí se mostrarán los resultados de la modificación -->
+        </div>
     </div>
 
-    <script src="js/scripts.js"></script>
+    <!-- jQuery, Popper.js, Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script>
+        function modificarReserva() {
+            // Obtener los nuevos valores del formulario
+            const reservationId = document.getElementById('reservation-id').value.trim();
+            const customerName = document.getElementById('customer-name').value.trim();
+            const roomNumber = document.getElementById('room-number').value.trim();
+            const startDate = document.getElementById('start-date').value;
+            const endDate = document.getElementById('end-date').value;
+            const reservationType = document.getElementById('reservation-type').value;
+
+            // Aquí podrías realizar la lógica de modificación y mostrar los resultados
+            // Por ahora, simplemente mostramos los valores en consola
+            console.log('ID de Reserva:', reservationId);
+            console.log('Nuevo Nombre del Cliente:', customerName);
+            console.log('Nuevo Número de Habitación:', roomNumber);
+            console.log('Nueva Fecha de Inicio:', startDate);
+            console.log('Nueva Fecha de Término:', endDate);
+            console.log('Nuevo Tipo de Reserva:', reservationType);
+
+            // Puedes realizar una llamada AJAX aquí para modificar la reserva en una base de datos
+
+            // Mostrar resultados simulados en el div modify-results
+            const modifyResultsDiv = document.getElementById('modify-results');
+            modifyResultsDiv.innerHTML = `
+                <h5>Resultado de la Modificación</h5>
+                <p>Se ha modificado la reserva con los siguientes datos:</p>
+                <ul>
+                    <li><strong>ID de Reserva:</strong> ${reservationId}</li>
+                    <li><strong>Nuevo Nombre del Cliente:</strong> ${customerName}</li>
+                    <li><strong>Nuevo Número de Habitación:</strong> ${roomNumber}</li>
+                    <li><strong>Nueva Fecha de Inicio:</strong> ${startDate}</li>
+                    <li><strong>Nueva Fecha de Término:</strong> ${endDate}</li>
+                    <li><strong>Nuevo Tipo de Reserva:</strong> ${reservationType}</li>
+                    <!-- Agrega más detalles según sea necesario -->
+                `;
+        }
+    </script>
 
     <!-- Footer -->
 <footer class="mt-5 bg-light text-center text-lg-start">

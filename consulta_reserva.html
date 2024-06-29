@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administración de Reservas - VERANUM</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Consulta de Reserva - VERANUM</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">Hoteles VERANUM</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,39 +36,45 @@
             </ul>
         </div>
     </nav>
-
     <div class="container mt-5">
-        <h1>Administración de Reservas</h1>
-        <form id="manage-reservations-form" class="mt-4">
-            <div class="form-group">
-                <label for="reservation-id">ID de la Reserva</label>
-                <input type="text" class="form-control" id="reservation-id" placeholder="Ingrese el ID de la reserva">
+        <h1>Detalle de la Reserva</h1>
+        <div id="reservation-details" class="mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Información de la Reserva</h5>
+                    <div class="form-group">
+                        <label for="reservation-id">ID de la Reserva</label>
+                        <input type="text" class="form-control" id="reservation-id" value="1" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-name">Nombre del Cliente</label>
+                        <input type="text" class="form-control" id="customer-name" value="Juan Pérez" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="room-number">Número de Habitación</label>
+                        <input type="text" class="form-control" id="room-number" value="101" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkin-date">Fecha de Check-in</label>
+                        <input type="text" class="form-control" id="checkin-date" value="2024-07-01" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkout-date">Fecha de Check-out</label>
+                        <input type="text" class="form-control" id="checkout-date" value="2024-07-05" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="reservation-type">Tipo de Reserva</label>
+                        <input type="text" class="form-control" id="reservation-type" value="Individual" readonly>
+                    </div>
+                    <button class="btn btn-primary" onclick="window.location.href='reserva.html'">Volver</button>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="customer-name">Nombre del Cliente</label>
-                <input type="text" class="form-control" id="customer-name" placeholder="Ingrese el nombre del cliente">
-            </div>
-            <div class="form-group">
-                <label for="room-number">Número de Habitación</label>
-                <input type="text" class="form-control" id="room-number" placeholder="Ingrese el número de habitación">
-            </div>
-            <button type="button" class="btn btn-primary" onclick="window.location.href = 'consulta_reserva.html'">Consultar Reserva</button>
-
-            <button type="button" class="btn btn-secondary" onclick="window.location.href = 'buscar_reserva.html'">Buscar Reserva</button>
-            
-            <button type="button" class="btn btn-success" onclick="window.location.href = 'modificar_reserva.html'">Modificar Reserva</button>
-            
-            <button type="button" class="btn btn-danger" onclick="window.location.href = 'eliminar_reserva.html'">Eliminar Reserva</button>
-        </form>
-
-        <div id="reservation-result" class="mt-4"></div>
+        </div>
     </div>
 
-    <script src="js/scripts.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
     <!-- Footer -->
 <footer class="mt-5 bg-light text-center text-lg-start">
     <div class="container p-4">

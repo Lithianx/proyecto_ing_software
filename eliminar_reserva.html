@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administración de Reservas - VERANUM</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Eliminar Reserva - Administración de Reservas</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -36,38 +41,82 @@
             </ul>
         </div>
     </nav>
-
-    <div class="container mt-5">
-        <h1>Administración de Reservas</h1>
-        <form id="manage-reservations-form" class="mt-4">
+    <div class="container">
+        <h1 class="text-center mb-4">Eliminar Reserva</h1>
+        <form id="eliminarReservaForm">
             <div class="form-group">
                 <label for="reservation-id">ID de la Reserva</label>
                 <input type="text" class="form-control" id="reservation-id" placeholder="Ingrese el ID de la reserva">
             </div>
             <div class="form-group">
                 <label for="customer-name">Nombre del Cliente</label>
-                <input type="text" class="form-control" id="customer-name" placeholder="Ingrese el nombre del cliente">
+                <input type="text" class="form-control" id="customer-name" placeholder="Ingrese el nombre del cliente" disabled>
+                <small id="customerHelpBlock" class="form-text text-muted">
+                    Este campo se llenará automáticamente al buscar la reserva.
+                </small>
             </div>
             <div class="form-group">
                 <label for="room-number">Número de Habitación</label>
-                <input type="text" class="form-control" id="room-number" placeholder="Ingrese el número de habitación">
+                <input type="text" class="form-control" id="room-number" placeholder="Ingrese el número de habitación" disabled>
+                <small id="roomHelpBlock" class="form-text text-muted">
+                    Este campo se llenará automáticamente al buscar la reserva.
+                </small>
             </div>
-            <button type="button" class="btn btn-primary" onclick="window.location.href = 'consulta_reserva.html'">Consultar Reserva</button>
-
-            <button type="button" class="btn btn-secondary" onclick="window.location.href = 'buscar_reserva.html'">Buscar Reserva</button>
-            
-            <button type="button" class="btn btn-success" onclick="window.location.href = 'modificar_reserva.html'">Modificar Reserva</button>
-            
-            <button type="button" class="btn btn-danger" onclick="window.location.href = 'eliminar_reserva.html'">Eliminar Reserva</button>
+            <div class="form-group">
+                <label for="start-date">Fecha de Inicio</label>
+                <input type="text" class="form-control" id="start-date" placeholder="Ingrese la fecha de inicio" disabled>
+                <small id="startDateHelpBlock" class="form-text text-muted">
+                    Este campo se llenará automáticamente al buscar la reserva.
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="end-date">Fecha de Término</label>
+                <input type="text" class="form-control" id="end-date" placeholder="Ingrese la fecha de término" disabled>
+                <small id="endDateHelpBlock" class="form-text text-muted">
+                    Este campo se llenará automáticamente al buscar la reserva.
+                </small>
+            </div>
+            <button type="button" class="btn btn-danger btn-block" onclick="eliminarReserva()">Eliminar Reserva</button>
         </form>
 
-        <div id="reservation-result" class="mt-4"></div>
+        <div id="delete-results" class="mt-4">
+            <!-- Aquí se mostrarán los resultados de la eliminación -->
+        </div>
     </div>
 
-    <script src="js/scripts.js"></script>
+    <!-- jQuery, Popper.js, Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script>
+        // Función para simular la eliminación de una reserva
+        function eliminarReserva() {
+            const reservationId = document.getElementById('reservation-id').value.trim();
+            const customerName = document.getElementById('customer-name').value.trim();
+            const roomNumber = document.getElementById('room-number').value.trim();
+            const startDate = document.getElementById('start-date').value.trim();
+            const endDate = document.getElementById('end-date').value.trim();
+
+            // Simular eliminación de reserva (mostrar en consola por ahora)
+            console.log('ID de Reserva a eliminar:', reservationId);
+            console.log('Cliente:', customerName);
+            console.log('Número de Habitación:', roomNumber);
+            console.log('Fecha de Inicio:', startDate);
+            console.log('Fecha de Término:', endDate);
+
+            // Puedes implementar aquí la lógica real para eliminar la reserva
+            // Puedes realizar una llamada AJAX para enviar el ID de la reserva al servidor y eliminarla en la base de datos
+
+            // Mostrar resultados simulados en el div delete-results
+            const deleteResultsDiv = document.getElementById('delete-results');
+            deleteResultsDiv.innerHTML = `
+                <h5>Resultado de la Eliminación</h5>
+                <p>Se ha eliminado la reserva con el siguiente ID:</p>
+                <p><strong>ID de Reserva:</strong> ${reservationId}</p>
+            `;
+        }
+    </script>
 
     <!-- Footer -->
 <footer class="mt-5 bg-light text-center text-lg-start">

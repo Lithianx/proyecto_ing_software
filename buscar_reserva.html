@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administración de Reservas - VERANUM</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Buscar Reserva - Administración de Reservas</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -36,10 +41,9 @@
             </ul>
         </div>
     </nav>
-
-    <div class="container mt-5">
-        <h1>Administración de Reservas</h1>
-        <form id="manage-reservations-form" class="mt-4">
+    <div class="container">
+        <h1 class="text-center mb-4">Buscar Reserva</h1>
+        <form id="buscarReservaForm">
             <div class="form-group">
                 <label for="reservation-id">ID de la Reserva</label>
                 <input type="text" class="form-control" id="reservation-id" placeholder="Ingrese el ID de la reserva">
@@ -52,23 +56,46 @@
                 <label for="room-number">Número de Habitación</label>
                 <input type="text" class="form-control" id="room-number" placeholder="Ingrese el número de habitación">
             </div>
-            <button type="button" class="btn btn-primary" onclick="window.location.href = 'consulta_reserva.html'">Consultar Reserva</button>
-
-            <button type="button" class="btn btn-secondary" onclick="window.location.href = 'buscar_reserva.html'">Buscar Reserva</button>
-            
-            <button type="button" class="btn btn-success" onclick="window.location.href = 'modificar_reserva.html'">Modificar Reserva</button>
-            
-            <button type="button" class="btn btn-danger" onclick="window.location.href = 'eliminar_reserva.html'">Eliminar Reserva</button>
+            <button type="button" class="btn btn-primary btn-block" onclick="buscarReserva()">Buscar Reserva</button>
         </form>
 
-        <div id="reservation-result" class="mt-4"></div>
+        <div id="search-results" class="mt-4">
+            <!-- Aquí se mostrarán los resultados de la búsqueda -->
+        </div>
     </div>
 
-    <script src="js/scripts.js"></script>
+    <!-- jQuery, Popper.js, Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+    <script>
+        function buscarReserva() {
+            // Obtener los valores del formulario
+            const reservationId = document.getElementById('reservation-id').value.trim();
+            const customerName = document.getElementById('customer-name').value.trim();
+            const roomNumber = document.getElementById('room-number').value.trim();
+
+            // Aquí podrías realizar la lógica de búsqueda y mostrar los resultados
+            // Por ahora, simplemente mostramos los valores en consola
+            console.log('ID de Reserva:', reservationId);
+            console.log('Nombre del Cliente:', customerName);
+            console.log('Número de Habitación:', roomNumber);
+
+            // Puedes realizar una llamada AJAX aquí para buscar la reserva en una base de datos
+
+            // Mostrar resultados simulados en el div search-results
+            const searchResultsDiv = document.getElementById('search-results');
+            searchResultsDiv.innerHTML = `
+                <h5>Resultados de la Búsqueda</h5>
+                <ul>
+                    <li><strong>ID de Reserva:</strong> ${reservationId}</li>
+                    <li><strong>Nombre del Cliente:</strong> ${customerName}</li>
+                    <li><strong>Número de Habitación:</strong> ${roomNumber}</li>
+                    <!-- Agrega más detalles según sea necesario -->
+                `;
+        }
+    </script>
     <!-- Footer -->
 <footer class="mt-5 bg-light text-center text-lg-start">
     <div class="container p-4">
